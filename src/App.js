@@ -9,7 +9,7 @@ import styles from "./index.css"
 
 export default function App() {
   return (
-    <div>
+    <div className="bg-green-950 h-screen font-poppins overflow-hidden">
       <BrowserRouter>
         <Routes>
           <Route index element={<Home />} />

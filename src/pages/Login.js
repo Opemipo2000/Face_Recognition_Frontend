@@ -4,8 +4,8 @@ import Camera from "../components/Camera";
 
 export default function Login() {
   return (
-    <div>
-      <h2>Meeting Login Page</h2>
+    <div className="mx-2 text-white pt-40 px-10">
+      <h2  className="text-[60px] font-sans font-medium">Meeting Login Page</h2>
       <Camera />
     </div>
   );

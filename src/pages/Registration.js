@@ -4,8 +4,8 @@ import RecordVideo from "../components/RecordVideo";
 
 export default function Registration() {
   return (
-    <div className="h-screen bg-green-950">
-      <h2 className="mx-2 text-white pt-20 px-10 font-medium text-center">Meeting Registration Page</h2>
+    <div>
+      <h2 className="mx-2 text-white text-[50px] pt-40 px-10 font-medium">Meeting Registration Page</h2>
       <RecordVideo />
     </div>
   );

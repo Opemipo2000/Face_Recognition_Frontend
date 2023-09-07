@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="h-screen bg-green-950 flex flex-columm">
+    <div className="flex flex-columm">
       <div className="mx-2 text-white pt-40 px-10">
-      <h2 className="text-[60px] font-normal font-sans font-medium" >Make</h2>
-      <h2 className="text-[60px] font-normal font-sans font-medium" >attendance </h2>
-      <h2 className="text-[60px] font-normal font-sans font-medium" >work for you.</h2>
+      <h2 className="text-[60px] font-poppins font-medium" >Make</h2>
+      <h2 className="text-[60px] font-poppins font-medium" >attendance </h2>
+      <h2 className="text-[60px] font-poppins font-medium" >work for you.</h2>
 
      
      <div className="mt-20 flex-row">
