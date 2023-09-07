@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Record from "./pages/Record";
 import Registration from "./pages/Registration";
 import NoPage from "./pages/NoPage";
+import styles from "./index.css"
 
 export default function App() {
   return (
