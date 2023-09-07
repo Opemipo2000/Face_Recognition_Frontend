@@ -12,7 +12,6 @@ export default function Home() {
      
      <div className="mt-20 flex-row">
       <Link to="/register">
-        <button className="">ENROLL DETAILS</button>
         <button className="bg-green-400 px-20 py-3 rounded-[25px] font-bold text-[18px] text-black w-[100%] my-2">ENROLL DETAILS</button>
       </Link>
       <br />
