@@ -4,6 +4,7 @@ module.exports = {
     content: ["./src/**/*.{js,jsx}", "./src/pages/**/*.{js,ts,jsx,tsx}", "./src/components/**/*.{js,ts,jsx,tsx}", "./app/**/*.{js,ts,jsx,tsx}"],
 
   theme: {
+<<<<<<< HEAD
     extend: {
       colors: {
         primary: "#00040f",
@@ -15,6 +16,9 @@ module.exports = {
         poppins: ["Poppins", "sans-serif"],
       },
     },
+=======
+    extend: {},
+>>>>>>> 935b48b6b16013fe538949090098a2e6f66a52a8
   },
   plugins: [],
 }
