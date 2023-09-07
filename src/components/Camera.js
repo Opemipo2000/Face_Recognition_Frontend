@@ -23,7 +23,12 @@ const Camera = () => {
   };
 
   return (
-    <>
+    <div className="my-10 flex flex-row justify-between">
+            <div className="ml-10 mt-10">
+      <button className="bg-green-400 py-3 rounded-[20px] font-bold text-[16px] text-black w-[200%] my-3" onClick={capturePhoto}>CAPTURE IMAGE</button><br />
+      <button className="bg-green-400 py-3 rounded-[20px] font-bold text-[16px] text-black w-[200%] my-3" onClick={() => setUrl(null)}>REFRESH</button>
+      </div>
+
       <Webcam
         ref={webcamRef}
         audio={false}
@@ -31,16 +36,15 @@ const Camera = () => {
         videoConstraints={videoConstraints}
         onUserMedia={onUserMedia}
         mirrored={true}
-      /><br />
-      <button onClick={capturePhoto}>Capture Image</button><br />
-      <button onClick={() => setUrl(null)}>Refresh</button>
+        className="absolute right-20 top-20 mt-20"
+      />
 
       {url && (
         <div>
           <img src={url} alt="Screenshot" />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
