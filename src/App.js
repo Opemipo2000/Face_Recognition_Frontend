@@ -5,7 +5,8 @@ import Login from "./pages/Login";
 import Record from "./pages/Record";
 import Registration from "./pages/Registration";
 import NoPage from "./pages/NoPage";
-import styles from "./index.css"
+import Success from "./pages/Success";
+import styles from "./index.css";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />-
           <Route path="/register" element={<Registration />} />
+          <Route path="/register" element={<Success />} />
           <Route path="/records" element={<Record />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
