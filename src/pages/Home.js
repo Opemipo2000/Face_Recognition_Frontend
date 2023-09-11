@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import students2 from "../images/students2.png";
+
 
 export default function Home() {
   return (
-    <div className="flex flex-columm">
-      <div className="mx-2 text-white pt-40 px-10">
-      <h2 className="text-[60px] font-poppins font-medium" >Make</h2>
-      <h2 className="text-[60px] font-poppins font-medium" >attendance </h2>
-      <h2 className="text-[60px] font-poppins font-medium" >work for you.</h2>
+    <div className="flex flex-columm justify-between">
+      <div className="mx-2 text-white px-20  pt-40">
+      <h2 className="text-[60px] font-poppins font-semibold" >Make</h2>
+      <h2 className="text-[60px] font-poppins font-semibold" >attendance </h2>
+      <h2 className="text-[60px] font-poppins font-semibold" >work for you.</h2>
 
      
      <div className="mt-20 flex-row">
@@ -24,7 +26,7 @@ export default function Home() {
       </Link>
       </div>
       </div>
-      <div>Insert pic here</div>
+      <img className="w-[55%] h-screen" src={students2}/>
     </div>
   );
 }
