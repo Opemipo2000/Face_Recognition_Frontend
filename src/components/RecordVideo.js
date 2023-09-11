@@ -17,8 +17,41 @@ function RecordVideo(props) {
   });
 
   const saveFile = async () => {
-    const blob = await recordWebcam.getRecording();
-    console.log(blob);
+    try{
+      const blob = await recordWebcam.getRecording();
+      console.log(blob);
+
+      const url= "0.0.0.0:5000/" //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
+
+      const payload = {  //make a javascript object with all the required fields
+        video_url: "www.google.com",
+        other_info: "info"
+      }
+
+      const request = { //construct your HTTP POST request
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json', // Set the content type to JSON
+        },
+        body: JSON.stringify(payload), // Convert the 'payload' object to JSON format
+    };
+
+    fetch(url, request) //actually sends the http request above to url
+    .then(response => response.json()) //response.json contains the body of your backend's response message (which you must specify)
+    .then(data => {
+        // Handle the response from the server here
+        console.log(data);
+    })
+    .catch(error => {
+        // Handle any errors that occur during the fetch request
+        console.error('Error:', error);
+    });
+
+      
+    }
+    catch(e) {
+      console.log(e) //just looking out for errors in this whole function
+    }
   };
 
   useEffect(() => {
