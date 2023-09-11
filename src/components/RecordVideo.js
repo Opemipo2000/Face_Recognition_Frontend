@@ -21,11 +21,14 @@ function RecordVideo(props) {
       const blob = await recordWebcam.getRecording();
       console.log(blob);
 
-      const url= "0.0.0.0:5000/" //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
+      const url= "http://127.0.0.1:8000/facerecog/api/v0/register" //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
 
       const payload = {  //make a javascript object with all the required fields
-        video_url: "www.google.com",
-        other_info: "info"
+        video: "www.google.com", //replace with download link
+        first_name: "Opemipo", //you would need to replace these with variables
+        last_name: "Okunoren",
+        email: "test@example.com" 
+
       }
 
       const request = { //construct your HTTP POST request
