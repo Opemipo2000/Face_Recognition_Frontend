@@ -26,7 +26,7 @@ export default function Home() {
       </Link>
       </div>
       </div>
-      <img className="w-[55%] h-screen" src={students2}/>
+      <img className="w-[51%] h-screen" src={students2}/>
     </div>
   );
 }
