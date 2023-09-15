@@ -6,6 +6,7 @@ import Record from "./pages/Record";
 import Registration from "./pages/Registration";
 import NoPage from "./pages/NoPage";
 import Success from "./pages/Success";
+import History from "./pages/History";
 import styles from "./index.css";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
           <Route path="/register" element={<Registration />} />
           <Route path="/success" element={<Success />} />
           <Route path="/records" element={<Record />} />
+          <Route path="/history" element={<History />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>
