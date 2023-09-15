@@ -5,7 +5,7 @@ import { useRef } from "react";
 import { useRecordWebcam } from "react-record-webcam";
 import camera_placeholder from "../images/camera_placeholder.png";
 
-function RecordVideo(props) {
+function MeetingVideo(props) {
   const [status, setStatus] = useState("");
 
   //Set variable to hold the input value
@@ -50,7 +50,7 @@ function RecordVideo(props) {
         videoRef.current.controls = true;
       }
 
-      const url = "http://127.0.0.1:8000/api/register"; //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
+      const url = "http://127.0.0.1:8000/api/score"; //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
 
       const payload = {
         //make a javascript object with all the required fields
@@ -170,7 +170,7 @@ function RecordVideo(props) {
                 className="bg-green-400 py-3 rounded-[20px] font-bold text-[16px] text-black w-[70%] my-2"
                 onClick={saveFile}
               >
-                REGISTER DETAILS
+                END MEETING
               </button>
               <div className="flex-row my-5 border">
                 <input
@@ -228,4 +228,4 @@ function RecordVideo(props) {
   );
 }
 
-export default RecordVideo;
+export default MeetingVideo;
