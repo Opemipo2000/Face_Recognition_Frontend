@@ -29,39 +29,21 @@ function MeetingVideo(props) {
         return;
       }
 
-      // Create a URL for the MP4 Blob
-      const videoUrl = URL.createObjectURL(recordedBlob);
-
-      // Set the src attribute of the video element to the MP4 URL
-      if (videoRef.current) {
-        videoRef.current.src = videoUrl;
-        videoRef.current.controls = true;
-      }
-
       const url = "http://127.0.0.1:8000/api/score/"; //when you run your backend use the url and port specified  (add any extra paths necessary to point to the api)
 
-      const payload = {
-        //make a javascript object with all the required fields
-        video: videoUrl, //replace with download link
-      };
+      const formData = new FormData();
+      formData.append("blob_file", recordedBlob); // 'file' is the File object you want to upload
 
-      const request = {
-        //construct your HTTP POST request
+      // Make an HTTP POST request using formData
+      fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json", // Set the content type to JSON
-        },
-        body: JSON.stringify(payload), // Convert the 'payload' object to JSON format
-      };
-
-      fetch(url, request) //actually sends the http request above to url
-        .then((response) => response.json()) //response.json contains the body of your backend's response message (which you must specify)
+        body: formData,
+      })
+        .then((response) => response.json())
         .then((data) => {
-          // Handle the response from the server here
           console.log(data);
         })
         .catch((error) => {
-          // Handle any errors that occur during the fetch request
           console.error("Error:", error);
         });
     } catch (e) {

@@ -42,22 +42,17 @@ const Camera = () => {
     try {
       const url = "http://127.0.0.1:8000/api/identify/";
 
-      const payload = {
-        image_file: imageSrc,
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-      };
+      const formData = new FormData();
+      formData.append("image", imageSrc);
+      formData.append("first_name", firstName);
+      formData.append("last_name", lastName);
+      formData.append("email", email);
 
-      const request = {
+      // Make an HTTP POST request using formData
+      fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      };
-
-      fetch(url, request)
+        body: formData,
+      })
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
