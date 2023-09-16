@@ -29,8 +29,6 @@ const Camera = () => {
 
   const [imageSrc, setImageSrc] = useState(null);
 
-  const [url, setUrl] = useState(null);
-
   const capturePhoto = React.useCallback(async () => {
     const capturedImageSrc = webcamRef.current.getScreenshot();
     setImageSrc(capturedImageSrc);
@@ -42,7 +40,7 @@ const Camera = () => {
 
   const handleSubmit = () => {
     try {
-      const url = "http://127.0.0.1:8000/api/identify";
+      const url = "http://127.0.0.1:8000/api/identify/";
 
       const payload = {
         image_file: imageSrc,
@@ -76,30 +74,51 @@ const Camera = () => {
 
   return (
     <div className="flex flex-row justify-between h-screen overflow-y-auto">
-      <div className="flex-row my-20 ml-[10pt]">
-        <div className="flex-row my-5 border pl-5">
+      <div className="flex flex-col my-10 ml-[10pt]">
+        <div className="my-2 border pl-5 w-[110%]">
           <input
-            className="bg-green-950 py-2 text-[20px] font-poppins"
+            className="bg-green-950 py-2 text-[20px]"
             placeholder="ENTER FIRSTNAME"
             value={firstName}
             onChange={handleFirstNameChange}
           ></input>
         </div>
-        <div className="flex-row my-5 border pl-5">
+        <div className="my-2 border pl-5 w-[110%]">
           <input
-            className="bg-green-950 py-2 text-[20px] font-mono "
+            className="bg-green-950 py-2 text-[20px]"
             placeholder="ENTER LASTNAME"
             value={lastName}
             onChange={handleLastNameChange}
           ></input>
         </div>
-        <div className="flex-row my-5 border pl-5">
+        <div className="my-2 border pl-5 w-[110%]">
           <input
-            className="bg-green-950 py-2 text-[20px] font-mono "
+            className="bg-green-950 py-2 text-[20px]"
             placeholder="ENTER EMAIL"
             value={email}
             onChange={handleEmailChange}
           ></input>
+        </div>
+        <div className="flex flex-col mt-10">
+          <button
+            className="bg-green-400 py-2 rounded-[20px] font-bold text-[16px] text-black w-[100%] my-2 bottom-40"
+            onClick={handleSubmit}
+          >
+            LOGIN
+          </button>
+          <button
+            className="bg-green-400 py-2 rounded-[20px] font-bold text-[16px] text-black min-w-[100%] my-2"
+            onClick={capturePhoto}
+          >
+            CAPTURE IMAGE
+          </button>
+
+          <button
+            className="bg-green-400 py-2 rounded-[20px] font-bold text-[16px] text-black min-w-[100%] my-2"
+            onClick={() => setImageSrc(null)}
+          >
+            REFRESH
+          </button>
         </div>
       </div>
       <div>
@@ -113,35 +132,12 @@ const Camera = () => {
           className="absolute right-0 w-[60%] min-h-[30%] max-h-[50%]"
         />
 
-        <div className="absolute bottom-20 mt-10 flex flex-row right-40 mr-[300px]">
-          <button
-            className="bg-green-400 py-3 rounded-[20px] font-bold text-[16px] text-black min-w-[100%] my-3"
-            onClick={capturePhoto}
-          >
-            CAPTURE IMAGE
-          </button>
-          <br />
-          <button
-            className="bg-green-400 py-3 rounded-[20px] font-bold text-[16px] text-black min-w-[100%] my-3 ml-5"
-            onClick={() => setUrl(null)}
-          >
-            REFRESH
-          </button>
-        </div>
-
-        {url && (
+        {imageSrc && (
           <div>
-            <img src={url} alt="Screenshot" />
+            <img src={imageSrc} alt="Screenshot" />
           </div>
         )}
       </div>
-
-      <button
-        className="absolute bg-green-400 py-3 ml-4 rounded-[20px] font-bold text-[16px] text-black w-[20%] my-3 bottom-40"
-        onClick={handleSubmit}
-      >
-        LOGIN
-      </button>
     </div>
   );
 };
